@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>My tasks</h1>
+  <ul>
+    <% @tasks.each do |task| %>
+    <h2><%= link_to task.title, task_path(task) %></h2>
+
+    <h3><%= task.details %></h3>
+      <span><%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %></span>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+         <% end %>
+  </ul>
+  <div class="border-top">
+    <div class="back-link">
+      <i class="fas fa-plus"></i>
+      <span><%= link_to "Add a new task", new_task_path %>
+      </span>
+    </div>
+  </div>
+</div>
